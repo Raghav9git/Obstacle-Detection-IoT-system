@@ -2,7 +2,7 @@ String ssid     = "Simulator Wifi";  // WiFi network name to connect the ESP8266
 String password = "";                 // Password for the WiFi network (empty means no password)
 String host     = "api.thingspeak.com"; // Server to send sensor data to (ThingSpeak API)
 const int httpPort   = 80;                // Standard HTTP port
-String url     = "/update?api_key=S0A7GHQUNOB1L1IS&field1="; // API endpoint to update ThingSpeak data
+String url     = "/update?api_key=YOUR_API_KEY&field1="; // API endpoint to update ThingSpeak data
 
 
 #include<LiquidCrystal.h>           // Library for LCD display control
