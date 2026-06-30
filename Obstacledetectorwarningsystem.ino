@@ -29,7 +29,7 @@ int setupESP8266(void) {
   if (!espSerial.find("OK")) return 1;  // If no OK response, fail early
     
   // Attempt to connect to the specified WiFi network
-  Serial.println("AT+CWJAP=\"" + ssid + "\",\"" + password + "\"");
+  Serial.println("AT+CWJAP=\"" + ssid + "\",\"" + password + "\"");    // ATention Connect Wi-fi Join Access Point = AT+CWJAP
   delay(5000);                   // Wait for connection attempt
   if (!Serial.find("OK")) return 2;  // Fail if WiFi connection not successful
   
@@ -48,7 +48,7 @@ void anydata(long distance) {
   if (!Serial.find("OK")){ return; }  // If connection fails, exit early
   
   // Construct HTTP GET request with current distance value
-  String httpPacket = "GET /update?api_key=S0A7GHQUNOB1L1IS&field1=" + String(distance) + " HTTP/1.1\r\nHost: api.thingspeak.com\r\n\r\n";
+  String httpPacket = "GET /update?api_key=YOUR_API_KEY&field1=" + String(distance) + " HTTP/1.1\r\nHost: api.thingspeak.com\r\n\r\n";
   int length = httpPacket.length();
   
   // Notify ESP8266 of the length of data to send
